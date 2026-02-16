@@ -1,0 +1,9 @@
+parameters:
+    bootstrapFiles:
+        - vendor/php-stubs/wordpress-stubs/wordpress-stubs.php
+    level: max
+    paths:
+        - packages
+    phpVersion: 80100
+    reportUnmatchedIgnoredErrors: true
+    tmpDir: .cache/phpstan/
