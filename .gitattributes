@@ -9,6 +9,7 @@
 
 /.editorconfig export-ignore
 /.gitattributes export-ignore
+/.github export-ignore
 /.gitignore export-ignore
 /.php-cs-fixer.dist.php export-ignore
 /CHANGELOG.md export-ignore
