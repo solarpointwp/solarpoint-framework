@@ -1,0 +1,147 @@
+name: Report a bug or unexpected behavior
+description: Help us identify and fix issues by sharing as much detail as possible
+labels: [bug, 'needs triage']
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Thank you for taking the time to report a bug!
+
+        Your reports help make SolarPointWP better for everyone. Please provide as much detail as possible to help us investigate and resolve the issue efficiently.
+
+        Please take a moment to search through [open issues](https://github.com/solarpointwp/framework/issues?q=is%3Aissue%20state%3Aopen) and [closed issues](https://github.com/solarpointwp/framework/issues?q=is%3Aissue%20state%3Aclosed) to see if your bug has already been reported or resolved before submitting.
+
+        > [!IMPORTANT]
+        > Reports that do not contain enough information to reproduce the issue, or that are not bug reports, may be closed without further action.
+
+  - type: checkboxes
+    id: regression-issue
+    attributes:
+      label: Regression Issue
+      description: A regression is when something that previously worked as expected has stopped working in a newer version.
+      options:
+        - label: This issue appears to be a regression.
+
+  - type: checkboxes
+    id: conflict-isolation
+    attributes:
+      label: Conflict Isolation
+      description: |
+        Please test your site for theme and plugin conflicts before submitting. Deactivate all other plugins and switch to a default WordPress theme. Then test again. If the issue is resolved, one of your other plugins or your theme is causing the conflict. Re-enable them one by one to identify which plugin is causing the issue.
+      options:
+        - label: I have deactivated all other plugins and confirmed the bug still occurs.
+          required: true
+        - label: This bug occurs with a default WordPress theme active.
+          required: true
+        - label: I can reproduce this bug consistently using the steps above.
+          required: true
+
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Bug Description
+      description: What is the problem? Provide a clear and concise description.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: Actual Behavior
+      description: What actually happened instead? Be specific.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: Reproduction Steps
+      description: |
+        Provide a concise, self-contained code snippet that reproduces the issue.
+        For more complex issues, provide a repository with the smallest possible sample that demonstrates the bug.
+
+        Avoid including business logic or unrelated code as it makes diagnosis more difficult.
+        The code sample should follow SSCCE principles. See http://sscce.org/ for details. In short, provide a code sample that we can copy/paste, run, and reproduce.
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any additional information that may help us troubleshoot the issue.
+
+  - type: input
+    id: framework-version
+    attributes:
+      label: SolarPointWP Framework Version
+      description: Provide the SolarPointWP framework version that you are using. Make sure it is still supported.
+      placeholder: e.g. 1.0.0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: wordpress-version
+    attributes:
+      label: WordPress Version
+      description: Found in WordPress Admin under Tools → Site Health → Info → WordPress.
+      options:
+        - '6.8'
+        - '6.8.1'
+        - '6.9'
+        - '6.9.1'
+    validations:
+      required: true
+
+  - type: dropdown
+    id: operating-system
+    attributes:
+      label: Operating System
+      description: Provide the operating system you are using.
+      options:
+        - Linux
+        - macOS
+        - Windows
+        - 'Other / Not Listed'
+    validations:
+      required: true
+
+  - type: dropdown
+    id: php-version
+    attributes:
+      label: PHP Version
+      description: Found in WordPress Admin under Tools → Site Health → Info → Server.
+      options:
+        - '8.1'
+        - '8.2'
+        - '8.3'
+        - '8.4'
+        - '8.5'
+    validations:
+      required: true
+
+  - type: dropdown
+    id: database-driver
+    attributes:
+      label: Database Driver
+      description: If applicable, provide the database driver and version you are using.
+      options:
+        - MariaDB
+        - MySQL
+        - 'Other / Not Listed'
+
+  - type: input
+    id: database-version
+    attributes:
+      label: Database Version
+      description: Found in WordPress Admin under Tools → Site Health → Info → Database.
+      placeholder: e.g. 8.0.32

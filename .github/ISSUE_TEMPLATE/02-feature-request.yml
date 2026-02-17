@@ -1,0 +1,52 @@
+name: Request a new feature or enhancement
+description: Share an idea that could make SolarPointWP better for everyone
+labels: [enhancement, 'needs triage']
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Thank you for taking the time to suggest a feature!
+
+        Your ideas help make SolarPointWP better for everyone. Please provide as much detail as possible to help us understand and evaluate your request.
+
+        Please take a moment to search through [open issues](https://github.com/solarpointwp/framework/issues?q=is%3Aissue%20state%3Aopen) and [closed issues](https://github.com/solarpointwp/framework/issues?q=is%3Aissue%20state%3Aclosed) to see if this feature has already been requested or implemented.
+
+        > [!IMPORTANT]
+        > If you plan to implement this feature yourself, please open a [GitHub Discussion](https://github.com/solarpointwp/framework/discussions/categories/ideas) first to confirm it aligns with the project's direction before investing time writing code.
+
+  - type: textarea
+    id: describe-feature
+    attributes:
+      label: Describe the Feature
+      description: A clear and concise description of the feature you are requesting.
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use Case
+      description: Describe the problem or use case this feature would solve. Why is this feature needed?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: If you have an idea of how this could be implemented, describe it here.
+
+  - type: textarea
+    id: other-information
+    attributes:
+      label: Other Information
+      description: Any additional context, references, or examples that may help us evaluate this request.
+
+  - type: checkboxes
+    id: acknowledgements
+    attributes:
+      label: Acknowledgements
+      options:
+        - label: I may be able to implement this feature request.
+        - label: This feature might incur a breaking change.
