@@ -1,7 +1,7 @@
 * text=auto
 
 *.json text eol=lf
-*.md text eol=lf
+*.md text eol=lf diff=markdown
 *.php text eol=lf diff=php
 *.xml text eol=lf
 
