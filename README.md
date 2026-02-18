@@ -11,6 +11,10 @@ SolarPointWP is the modern framework to accelerate WordPress plugin development.
 
 Feel free to [open an issue](https://github.com/solarpointwp/framework/issues/new) if one does not [already exist](https://github.com/solarpointwp/framework/issues).
 
+## Code of Conduct
+
+In order to keep SolarPointWP welcoming to everyone, please read and follow our [Code of Conduct](https://github.com/solarpointwp/framework?tab=coc-ov-file).
+
 ## Security Vulnerabilities
 
 Please review [our security policy](https://github.com/solarpointwp/framework/security/policy) for information on how to report security vulnerabilities.
