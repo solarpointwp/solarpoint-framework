@@ -145,3 +145,12 @@ body:
       label: Database Version
       description: Found in WordPress Admin under Tools → Site Health → Info → Database.
       placeholder: e.g. 8.0.32
+
+  - type: checkboxes
+    id: code-of-conduct
+    attributes:
+      label: Code of Conduct
+      description: Please review our [Code of Conduct](https://github.com/solarpointwp/framework?tab=coc-ov-file) before submitting this issue.
+      options:
+        - label: I agree to follow the Code of Conduct.
+          required: true

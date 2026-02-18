@@ -50,3 +50,12 @@ body:
       options:
         - label: I may be able to implement this feature request.
         - label: This feature might incur a breaking change.
+
+  - type: checkboxes
+    id: code-of-conduct
+    attributes:
+      label: Code of Conduct
+      description: Please review our [Code of Conduct](https://github.com/solarpointwp/framework?tab=coc-ov-file) before submitting this issue.
+      options:
+        - label: I agree to follow the Code of Conduct.
+          required: true
