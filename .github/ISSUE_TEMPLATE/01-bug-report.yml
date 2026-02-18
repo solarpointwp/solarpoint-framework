@@ -96,9 +96,7 @@ body:
       description: Found in WordPress Admin under Tools → Site Health → Info → WordPress.
       options:
         - '6.8'
-        - '6.8.1'
         - '6.9'
-        - '6.9.1'
     validations:
       required: true
 
