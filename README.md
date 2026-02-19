@@ -7,10 +7,6 @@ SolarPointWP is the modern framework to accelerate WordPress plugin development.
 - PHP 8.1 or higher
 - WordPress 6.8 or higher
 
-## Report an Issue
-
-Feel free to [open an issue](https://github.com/solarpointwp/framework/issues/new) if one does not [already exist](https://github.com/solarpointwp/framework/issues).
-
 ## Code of Conduct
 
 In order to keep SolarPointWP welcoming to everyone, please read and follow our [Code of Conduct](https://github.com/solarpointwp/framework?tab=coc-ov-file).
