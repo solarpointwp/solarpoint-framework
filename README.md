@@ -16,6 +16,11 @@ Get support from the community by browsing existing discussions or asking a ques
 Detailed instructions for reporting bugs, requesting features, and more can be found in our [support documentation](SUPPORT.md).
 
 
+## Contributing
+
+We welcome all kinds of contributions to SolarPoint. See our [contribution guidelines](CONTRIBUTING.md) to get started.
+
+
 ## Code of Conduct
 
 In order to keep SolarPoint welcoming to everyone, please read and follow our [Code of Conduct](https://github.com/solarpointwp/solarpoint-framework?tab=coc-ov-file).
