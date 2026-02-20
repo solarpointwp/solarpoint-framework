@@ -1,12 +1,12 @@
 <!-- You can erase any parts of this template not applicable to your Pull Request. -->
 
 <!--
-Thank you for contributing to SolarPointWP!
+Thank you for contributing to SolarPoint!
 
-Your contributions help make SolarPointWP better for everyone. Please provide as much detail as possible to help us review this pull request efficiently.
+Your contributions help make SolarPoint better for everyone. Please provide as much detail as possible to help us review this pull request efficiently.
 
 Please read the following rules carefully:
-- Before submitting a pull request that fixes a security issue, please report it privately via [GitHub Security Advisories](https://github.com/solarpointwp/framework/security/advisories/new).
+- Before submitting a pull request that fixes a security issue, please report it privately via [GitHub Security Advisories](https://github.com/solarpointwp/solarpoint-framework/security/advisories/new).
 - Search through open and closed pull requests to ensure a similar change has not already been submitted.
 - Pull requests targeting the main branch will be closed.
 - Keep pull requests small and focused on a single concern.
@@ -17,7 +17,7 @@ Please read the following rules carefully:
 
 Failure to follow these rules may result in your pull request being closed without further action.
 
-IMPORTANT: If this pull request introduces a new feature or non-trivial change, please confirm that you opened a GitHub Discussion (https://github.com/solarpointwp/framework/discussions/categories/ideas) first to ensure it aligns with the project's direction before investing time in writing code.
+IMPORTANT: If this pull request introduces a new feature or non-trivial change, please confirm that you opened a GitHub Discussion (https://github.com/solarpointwp/solarpoint-framework/discussions/categories/ideas) first to ensure it aligns with the project's direction before investing time in writing code.
 -->
 
 
@@ -40,7 +40,7 @@ IMPORTANT: If this pull request introduces a new feature or non-trivial change, 
 <!--
 Considerations for writing testing instructions:
 - Keep your testing instructions updated if they become obsolete as part of a new commit.
-- Define the testing instructions in a way that they can be understood and followed by everyone, even those new to SolarPointWP.
+- Define the testing instructions in a way that they can be understood and followed by everyone, even those new to SolarPoint.
 - Make sure no sensitive information (such as API keys, passwords, or user data) is included in this public pull request.
 -->
 
@@ -107,4 +107,4 @@ IMPORTANT: Pull requests that appear to be AI-generated with little human insigh
 
 <!-- Please review our Code of Conduct before submitting this pull request. -->
 
--  [ ] I agree to follow the [Code of Conduct](https://github.com/solarpointwp/framework?tab=coc-ov-file).
+-  [ ] I agree to follow the [Code of Conduct](https://github.com/solarpointwp/solarpoint-framework?tab=coc-ov-file).
