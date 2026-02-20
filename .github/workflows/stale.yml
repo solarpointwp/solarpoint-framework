@@ -7,7 +7,7 @@ on:
 permissions: {}
 
 jobs:
-  close-stale:
+  stale:
     runs-on: ubuntu-latest
 
     permissions:
