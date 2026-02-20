@@ -104,7 +104,7 @@ Please review our security policy for information on how to report security vuln
 
 SolarPoint is maintained by volunteers. While we strive to respond in a timely manner, response times are not guaranteed. Please be patient and respectful when waiting for a reply.
 
-Issues marked with the `needs info` label will be marked as stale after 30 days of inactivity and closed after 7 additional days without activity. You are welcome to reopen them or open a new issue if the problem persists.
+Issues and pull requests marked with the `needs info` label will be marked as stale after 30 days of inactivity and closed after 7 additional days without activity. You are welcome to reopen them or open a new issue if the problem persists.
 
 
 ## Commercial Support
