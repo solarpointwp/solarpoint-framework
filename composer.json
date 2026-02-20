@@ -1,8 +1,8 @@
 {
-    "name": "solarpointwp/framework",
-    "description": "SolarPointWP is the modern framework to accelerate WordPress plugin development.",
+    "name": "solarpointwp/solarpoint-framework",
+    "description": "SolarPoint is the modern framework to accelerate WordPress plugin development.",
     "type": "library",
-    "keywords": ["solarpointwp", "framework", "wordpress"],
+    "keywords": ["solarpoint", "framework", "wordpress"],
     "license": "GPL-3.0-or-later",
     "authors": [
         {
@@ -11,8 +11,8 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/solarpointwp/framework/issues",
-        "source": "https://github.com/solarpointwp/framework"
+        "issues": "https://github.com/solarpointwp/solarpoint-framework/issues",
+        "source": "https://github.com/solarpointwp/solarpoint-framework"
     },
     "require": {
         "php": "^8.1"
