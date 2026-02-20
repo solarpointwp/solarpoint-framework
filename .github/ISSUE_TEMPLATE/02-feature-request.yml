@@ -1,5 +1,5 @@
 name: Request a new feature or enhancement
-description: Share an idea that could make SolarPointWP better for everyone
+description: Share an idea that could make SolarPoint better for everyone
 labels: [enhancement, 'needs triage']
 
 body:
@@ -8,12 +8,12 @@ body:
       value: |
         ### Thank you for taking the time to suggest a feature!
 
-        Your ideas help make SolarPointWP better for everyone. Please provide as much detail as possible to help us understand and evaluate your request.
+        Your ideas help make SolarPoint better for everyone. Please provide as much detail as possible to help us understand and evaluate your request.
 
-        Please take a moment to search through [open issues](https://github.com/solarpointwp/framework/issues?q=is%3Aissue%20state%3Aopen) and [closed issues](https://github.com/solarpointwp/framework/issues?q=is%3Aissue%20state%3Aclosed) to see if this feature has already been requested or implemented.
+        Please take a moment to search through [open issues](https://github.com/solarpointwp/solarpoint-framework/issues?q=is%3Aissue%20state%3Aopen) and [closed issues](https://github.com/solarpointwp/solarpoint-framework/issues?q=is%3Aissue%20state%3Aclosed) to see if this feature has already been requested or implemented.
 
         > [!IMPORTANT]
-        > If you plan to implement this feature yourself, please open a [GitHub Discussion](https://github.com/solarpointwp/framework/discussions/categories/ideas) first to confirm it aligns with the project's direction before investing time writing code.
+        > If you plan to implement this feature yourself, please open a [GitHub Discussion](https://github.com/solarpointwp/solarpoint-framework/discussions/categories/ideas) first to confirm it aligns with the project's direction before investing time writing code.
 
   - type: textarea
     id: describe-feature
@@ -55,7 +55,7 @@ body:
     id: code-of-conduct
     attributes:
       label: Code of Conduct
-      description: Please review our [Code of Conduct](https://github.com/solarpointwp/framework?tab=coc-ov-file) before submitting this issue.
+      description: Please review our [Code of Conduct](https://github.com/solarpointwp/solarpoint-framework?tab=coc-ov-file) before submitting this issue.
       options:
         - label: I agree to follow the Code of Conduct.
           required: true
