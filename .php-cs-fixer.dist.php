@@ -101,7 +101,6 @@ $rules = [
             'property',
         ],
     ],
-    'void_return' => true,
     'yoda_style' => [
         'equal' => false,
         'identical' => false,
