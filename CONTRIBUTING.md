@@ -259,7 +259,7 @@ This section outlines the step-by-step process for moving a contribution from a 
 
 ### Branching Strategy
 
-The `main` branch always reflects the latest stable release and is never committed to directly. All active development occurs on version branches (e.g., `1.x`, `2.x`).
+The default branch on GitHub is always the current active version branch (e.g., `1.x`). The `main` branch reflects the latest stable release and is never committed to directly. All active development occurs on version branches.
 
 
 #### How Version Branches Work
