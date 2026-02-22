@@ -23,6 +23,19 @@
         "phpstan/phpstan": "^2.1",
         "phpunit/phpunit": "^10.5"
     },
+    "replace": {
+        "solarpoint/container": "self.version"
+    },
+    "autoload": {
+        "psr-4": {
+            "SolarPoint\\Container\\": "packages/container/src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SolarPoint\\Container\\Tests\\": "packages/container/tests/"
+        }
+    },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
