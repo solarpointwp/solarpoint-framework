@@ -24,16 +24,19 @@
         "phpunit/phpunit": "^10.5"
     },
     "replace": {
-        "solarpoint/container": "self.version"
+        "solarpoint/container": "self.version",
+        "solarpoint/core": "self.version"
     },
     "autoload": {
         "psr-4": {
-            "SolarPoint\\Container\\": "packages/container/src/"
+            "SolarPoint\\Container\\": "packages/container/src/",
+            "SolarPoint\\Core\\": "packages/core/src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "SolarPoint\\Container\\Tests\\": "packages/container/tests/"
+            "SolarPoint\\Container\\Tests\\": "packages/container/tests/",
+            "SolarPoint\\Core\\Tests\\": "packages/core/tests/"
         }
     },
     "minimum-stability": "dev",
