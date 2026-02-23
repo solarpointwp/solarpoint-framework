@@ -98,7 +98,7 @@ final class Container implements ContainerInterface
      */
     public function isResolved(string $abstract): bool
     {
-        return isset($this->resolved[$abstract]);
+        return isset($this->resolved[$abstract]) || isset($this->instances[$abstract]);
     }
 
     public function isShared(string $abstract): bool
@@ -202,9 +202,6 @@ final class Container implements ContainerInterface
              * @var class-string         $concrete
              * @var array<string, mixed> $parameters
              */
-            // Guard against infinite recursion: if abstract and concrete are the same,
-            // instantiate directly rather than delegating back to make(), which would
-            // re-enter this closure indefinitely.
             if ($abstract === $concrete) {
                 return new $concrete(...$parameters);
             }
