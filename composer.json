@@ -1,5 +1,5 @@
 {
-    "name": "solarpointwp/solarpoint-framework",
+    "name": "solarpoint/solarpoint-framework",
     "description": "SolarPoint is the modern framework to accelerate WordPress plugin development.",
     "type": "library",
     "keywords": ["solarpoint", "framework", "wordpress"],
