@@ -1,0 +1,43 @@
+{
+    "name": "solarpoint/core",
+    "description": "The foundational layer for plugin architecture and lifecycle management.",
+    "type": "library",
+    "keywords": ["solarpoint", "core", "plugin"],
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Mark Hadjar",
+            "email": "mark.hadjar@solarpointwp.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/solarpointwp/solarpoint-framework/issues",
+        "source": "https://github.com/solarpointwp/solarpoint-framework"
+    },
+    "require": {
+        "php": "^8.1",
+        "solarpoint/container": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "SolarPoint\\Core\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SolarPoint\\Core\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}
