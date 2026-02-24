@@ -1,0 +1,62 @@
+name: Submit a maintenance task
+description: Tasks to clean up, upgrade, or improve the framework internals.
+labels: [maintenance, 'needs triage']
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Thank you for taking the time to submit a maintenance task!
+
+        Your contributions help make SolarPoint better for everyone. Please provide as much detail as possible to help us plan and implement the change efficiently.
+
+        Please take a moment to search through [open issues](https://github.com/solarpointwp/solarpoint-framework/issues?q=is%3Aissue%20state%3Aopen) and [closed issues](https://github.com/solarpointwp/solarpoint-framework/issues?q=is%3Aissue%20state%3Aclosed) before submitting.
+
+        > [!IMPORTANT]
+        > This template is for maintenance tasks only. Issues that are not maintenance tasks may be closed without further action.
+
+  - type: dropdown
+    id: maintenance-type
+    attributes:
+      label: Type
+      description: Select the type of maintenance work.
+      options:
+        - Housekeeping
+        - CI/CD
+        - Refactoring
+        - Code Style
+        - Performance
+        - Revert
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear and concise description of the task and why it is needed.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-change
+    attributes:
+      label: Proposed Change
+      description: Describe what needs to change. Include file paths, diffs, or examples if helpful.
+    validations:
+      required: true
+
+  - type: textarea
+    id: other-information
+    attributes:
+      label: Other Information
+      description: Any additional context, references, or related issues.
+
+  - type: checkboxes
+    id: code-of-conduct
+    attributes:
+      label: Code of Conduct
+      description: Please review our [Code of Conduct](https://github.com/solarpointwp/solarpoint-framework?tab=coc-ov-file) before submitting this issue.
+      options:
+        - label: I agree to follow the Code of Conduct.
+          required: true
