@@ -4,6 +4,8 @@ parameters:
     level: max
     paths:
         - packages
+    excludePaths:
+        - packages/*/tests/bootstrap.php
     phpVersion: 80100
     reportUnmatchedIgnoredErrors: true
     tmpDir: .cache/phpstan/
