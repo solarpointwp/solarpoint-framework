@@ -4,43 +4,42 @@ Welcome to the SolarPoint community, and thank you for contributing! The followi
 
 Have any questions about contributing to this project? Ask them on [GitHub Discussions](https://github.com/solarpointwp/solarpoint-framework/discussions/categories/q-a).
 
-
 ## Table of Contents
 
 - [How You Can Help](#how-you-can-help)
 - [Before You Get Started](#before-you-get-started)
-  - [Community Guidelines](#community-guidelines)
-  - [Project Licensing](#project-licensing)
-  - [AI-Assisted Contributions](#ai-assisted-contributions)
-  - [Governance](#governance)
+    - [Community Guidelines](#community-guidelines)
+    - [Project Licensing](#project-licensing)
+    - [AI-Assisted Contributions](#ai-assisted-contributions)
+    - [Governance](#governance)
 - [Getting Help & Support](#getting-help--support)
 - [Submitting Issues](#submitting-issues)
-  - [Bug Reports](#bug-reports)
-  - [Feature Requests](#feature-requests)
+    - [Bug Reports](#bug-reports)
+    - [Feature Requests](#feature-requests)
 - [Triaging Issues](#triaging-issues)
 - [Your First Contribution](#your-first-contribution)
 - [Local Development Setup](#local-development-setup)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Monorepo Architecture](#monorepo-architecture)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+    - [Git Configuration](#git-configuration)
+    - [Monorepo Architecture](#monorepo-architecture)
 - [Coding Standards](#coding-standards)
 - [Deprecation Policy](#deprecation-policy)
 - [Development Workflow](#development-workflow)
-  - [Branching Strategy](#branching-strategy)
-  - [Writing Tests](#writing-tests)
-  - [Commit Messages](#commit-messages)
-  - [Commit Signing](#commit-signing)
-- [Opening A Pull Request](#opening-a-pull-request)
-  - [Submitting Code](#submitting-code)
-  - [Submitting Documentation](#submitting-documentation)
-  - [PR Requirements](#pr-requirements)
-  - [Review Process](#review-process)
+    - [Branching Strategy](#branching-strategy)
+    - [Writing Tests](#writing-tests)
+    - [Commit Messages](#commit-messages)
+    - [Commit Signing](#commit-signing)
+- [Opening a Pull Request](#opening-a-pull-request)
+    - [Submitting Code](#submitting-code)
+    - [Submitting Documentation](#submitting-documentation)
+    - [PR Requirements](#pr-requirements)
+    - [Review Process](#review-process)
 - [Project Communication](#project-communication)
-  - [Global Communication Standards](#global-communication-standards)
-  - [GitHub Discussions](#github-discussions)
-  - [Using GitHub Issues and Discussions](#using-github-issues-and-discussions)
-  - [Project and Development Updates](#project-and-development-updates)
-
+    - [Global Communication Standards](#global-communication-standards)
+    - [GitHub Discussions](#github-discussions)
+    - [Using GitHub Issues and Discussions](#using-github-issues-and-discussions)
+    - [Project and Development Updates](#project-and-development-updates)
 
 ## How You Can Help
 
@@ -54,19 +53,15 @@ You can contribute to this project in several ways. Here are some examples:
 
 Anything else that could enhance the project!
 
-
 ## Before You Get Started
-
 
 ### Community Guidelines
 
 This project follows a [Code of Conduct](https://github.com/solarpointwp/solarpoint-framework?tab=coc-ov-file) that all community members are asked to read and abide by.
 
-
 ### Project Licensing
 
 By submitting a pull request, you represent that you have the right to license your contribution to the project and the community. All contributions are licensed under the [GPL-3.0-or-later](LICENSE) license.
-
 
 ### AI-Assisted Contributions
 
@@ -76,16 +71,14 @@ If you use AI tooling in any part of your contribution, you must disclose this i
 
 - **Total Ownership:** You are fully responsible for every line of code you submit, regardless of how it was generated. When you sign your commits (DCO), you are certifying you have the right to submit this code.
 - **Comprehension:** Code that you cannot explain, debug, or defend during the review process will not be merged.
-- **Human Context:** Pull Request descriptions must be written in your own words. PRs with generic, AI-generated descriptions, or low-effort AI code dumps (what we call "AI slop") without human insight, will be closed.
+- **Human Context:** Pull Request descriptions must be written in your own words. PRs with generic, AI-generated descriptions, or low-effort AI dumps without human insight, will be closed.
 - **License Compatibility:** All contributions must be compatible with the project's GPL-3.0-or-later license. You must avoid AI tools whose terms restrict GPL usage or impose redistribution limitations on generated output.
 
 AI tools should be used to **enhance, not replace** the human elements that make OSS special: learning, collaboration, and community growth.
 
-
 ### Governance
 
 At project launch, SolarPoint has a light governance structure. The intention is for the community to evolve and adopt additional processes as participation grows. Stay tuned, and stay engaged! Your feedback is welcome.
-
 
 ## Getting Help & Support
 
@@ -96,7 +89,6 @@ See the [support documentation](SUPPORT.md) for full guidance on where to direct
 > [!IMPORTANT]
 > GitHub Issues are reserved for confirmed bug reports and approved feature requests. Support questions opened as issues will be converted or closed.
 
-
 ## Submitting Issues
 
 All issues related to SolarPoint should be submitted to the [issue tracker](https://github.com/solarpointwp/solarpoint-framework/issues). See the [support documentation](SUPPORT.md) for detailed guidance on what to include in your report.
@@ -104,8 +96,9 @@ All issues related to SolarPoint should be submitted to the [issue tracker](http
 > [!IMPORTANT]
 > Do not open public issues for security vulnerabilities. Refer to the [security policy](https://github.com/solarpointwp/solarpoint-framework/security/policy) for reporting instructions.
 
-An issue must exist before submitting a pull request. All pull requests must be linked to an existing issue.
+**For new features or significant changes, open an issue before submitting a pull request.** Filing an issue first allows the maintainers and community to discuss the design before significant time is invested.
 
+**Small fixes such as documentation fixes, typo corrections, and minor bug fixes do not require an issue.** A pull request on its own is sufficient. This is a judgement call, and a maintainer may ask you to file an issue if larger design decisions are involved.
 
 ### Bug Reports
 
@@ -113,13 +106,11 @@ Before submitting a new bug report, review the [support documentation](SUPPORT.m
 
 [Submit a bug report →](https://github.com/solarpointwp/solarpoint-framework/issues/new?template=01-bug-report.yml)
 
-
 ### Feature Requests
 
 Before submitting a feature request, check the [existing issues](https://github.com/solarpointwp/solarpoint-framework/issues) and active [pull requests](https://github.com/solarpointwp/solarpoint-framework/pulls) to see if anyone is already working on it. If not, open a [GitHub Discussion](https://github.com/solarpointwp/solarpoint-framework/discussions/categories/ideas) before writing any code to confirm it aligns with the project's direction. This will save you from investing time on a feature that may not be accepted.
 
 [Submit a feature request →](https://github.com/solarpointwp/solarpoint-framework/issues/new?template=02-feature-request.yml)
-
 
 ## Triaging Issues
 
@@ -133,7 +124,6 @@ If you don't have the time or background to contribute code, consider helping wi
 
 As the project grows, trusted contributors may be granted the GitHub **Triage** role, allowing them to manage labels and organize issues without write access to the codebase.
 
-
 ## Your First Contribution
 
 New to open source or to this project? Welcome.
@@ -142,9 +132,7 @@ New to open source or to this project? Welcome.
 - Ask questions in [GitHub Discussions](https://github.com/solarpointwp/solarpoint-framework/discussions/categories/q-a) before starting work on anything non-trivial. It is far better to check alignment upfront than to have a PR rejected after significant effort.
 - Small contributions such as documentation fixes, additional test coverage, and typo corrections are just as valued as new features.
 
-
 ## Local Development Setup
-
 
 ### Prerequisites
 
@@ -153,22 +141,34 @@ New to open source or to this project? Welcome.
 - Composer
 - A local WordPress environment (required for integration tests)
 
-
 ### Installation
 
 1. [Fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) and clone the repository:
+
    ```bash
    git clone https://github.com/YOUR-USERNAME/solarpoint-framework.git
    ```
+
 2. Add the upstream remote to keep your fork in sync:
+
    ```bash
    git remote add upstream https://github.com/solarpointwp/solarpoint-framework.git
    ```
+
 3. Install PHP dependencies:
+
    ```bash
    composer install
    ```
 
+### Git Configuration
+
+Make sure your name and email are configured in Git. These must match your GitHub account for the DCO check to pass:
+
+```bash
+git config user.name "Your Name"
+git config user.email "your@email.com"
+```
 
 ### Monorepo Architecture
 
@@ -176,12 +176,11 @@ SolarPoint is structured as a monorepo. The `packages/` directory contains the i
 
 Each package declares its own dependencies in `packages/*/composer.json`. These are mirrored in the root `composer.json`, so a single `composer install` at the project root is sufficient for all development and testing.
 
-
 ## Coding Standards
 
 All code contributions must pass automated quality checks before being reviewed. Run `composer cs:fix` to apply formatting, then `composer qa` to verify coding standards, static analysis, and tests all pass.
 
-**PHP CS Fixer**
+### PHP CS Fixer
 
 Code style follows [@PhpCsFixer](https://cs.symfony.com/doc/ruleSets/PhpCsFixer.html) (based on [PER Coding Style 3.0](https://www.php-fig.org/per/coding-style/)) with custom modifications. Run `composer cs:fix` to apply all formatting and do not hand-format; let the fixer decide.
 
@@ -196,14 +195,14 @@ Notable rules and overrides:
 - **Namespace imports:** Use `use` statements instead of inline fully-qualified class names.
 - **Strict types:** Include `declare(strict_types=1)` in all PHP files.
 
-**PHPStan**
+### PHPStan
 
 All code must pass PHPStan static analysis at `max` level. See `phpstan.neon.dist` for the configuration. Static analysis failures are blocking in CI and must be resolved.
 
-**Naming Conventions**
+### Naming Conventions
 
 | Construct | Convention | Example |
-|---|---|---|
+| --- | --- | --- |
 | Classes | `UpperCamelCase` | `PluginLoader` |
 | Abstract classes | `Abstract` prefix | `AbstractHook` |
 | Interfaces | `Interface` suffix | `HookInterface` |
@@ -212,12 +211,11 @@ All code must pass PHPStan static analysis at `max` level. See `phpstan.neon.dis
 | Methods and variables | `camelCase` | `hasContainer()` |
 | Constants | `SCREAMING_SNAKE_CASE` | `DEFAULT_PRIORITY` |
 
-**PHPDoc**
+### PHPDoc
 
 - Add PHPDoc blocks only when they provide information not already expressed by type hints.
 - Avoid writing PHPDoc blocks that simply restate the type signature.
 - Place `null` at the end of union types.
-
 
 ## Deprecation Policy
 
@@ -226,6 +224,7 @@ Public APIs are never removed without first going through a deprecation cycle. T
 **Three-step deprecation process:**
 
 1. **PHPDoc:** Mark the method, class, or property with `@deprecated`:
+
    ```php
    /**
     * @deprecated since 1.2, use Bar::newMethod() instead.
@@ -234,6 +233,7 @@ Public APIs are never removed without first going through a deprecation cycle. T
    ```
 
 2. **Runtime notice:** Trigger a deprecation inside the method body so it surfaces during testing (only when `WP_DEBUG` is enabled):
+
    ```php
    if (defined('WP_DEBUG') && WP_DEBUG) {
        trigger_error('Call Bar::newMethod() instead.', E_USER_DEPRECATED);
@@ -251,16 +251,13 @@ The deprecated API remains functional until the next major version, at which poi
 > - Change the signature of a public method in a patch release.
 > - Change exception messages in a patch release, as downstream code may depend on them.
 
-
 ## Development Workflow
 
 This section outlines the step-by-step process for moving a contribution from a local idea to a merged Pull Request.
 
-
 ### Branching Strategy
 
 The default branch on GitHub is always the current active version branch (e.g., `1.x`). The `main` branch reflects the latest stable release and is never committed to directly. All active development occurs on version branches.
-
 
 #### How Version Branches Work
 
@@ -270,13 +267,12 @@ The default branch on GitHub is always the current active version branch (e.g., 
 
 **Propagation:** Bug fixes are applied to the lowest actively maintained version branch and cherry-picked forward to newer branches by maintainers. Critical security fixes are applied across all relevant version branches simultaneously.
 
-
 #### Branch Naming Conventions
 
 Branch names should follow the format `<prefix>/<description>` using lowercase letters, numbers, and hyphens. Include the issue number where applicable.
 
 | Prefix | Purpose | Target Branch |
-|---|---|---|
+| --- | --- | --- |
 | `feature/` | New features or enhancements | Next version branch (e.g., `2.x`) |
 | `bugfix/` | Regular bug fixes | Lowest actively maintained version branch |
 | `security/` | Patches for confirmed security vulnerabilities | All actively maintained version branches |
@@ -290,7 +286,8 @@ Branch names should follow the format `<prefix>/<description>` using lowercase l
 > If you are unsure which version branch to target, ask in the linked issue. When in doubt, target the highest-numbered `x.x` branch.
 
 **Examples:**
-```
+
+```text
 feature/hook-priority-ordering
 bugfix/issue-42-container-null-dereference
 hotfix/fix-production-crash
@@ -298,12 +295,11 @@ chore/update-installation-guide
 chore/update-dependencies
 ```
 
-
 ### Writing Tests
 
 All new features must include unit tests. Bug fixes must include a regression test: a test that fails before the fix is applied and passes afterward.
 
-**Test Location & Execution**
+#### Test Location & Execution
 
 Tests are located within each package at `packages/*/tests/`. The root `phpunit.xml.dist` defines the test suites and environment settings for the entire monorepo.
 
@@ -311,7 +307,7 @@ Tests are located within each package at `packages/*/tests/`. The root `phpunit.
 - **Run package tests:** To save time, run tests for a single package: `vendor/bin/phpunit packages/<package-name>/tests`.
 - **Unit vs. Integration:** Most tests should be "pure" unit tests that mock WordPress functions to ensure speed. Only use a full WordPress bootstrap (integration tests) when testing direct interactions with the WordPress database or the plugin/theme lifecycle.
 
-**CI & Strict Mode**
+#### CI & Strict Mode
 
 Our PHPUnit configuration is set to strict mode. The following will cause CI to fail and must be resolved, not suppressed:
 
@@ -319,23 +315,22 @@ Our PHPUnit configuration is set to strict mode. The following will cause CI to 
 - **Deprecations:** Any `E_USER_DEPRECATED` notices or `@deprecated` tags triggered during the test run.
 - **PHP errors:** All standard PHP warnings, notices, and errors triggered in the source code.
 
-**Best Practices & Quality**
+#### Best Practices & Quality
 
 - **Mocking:** Use mocking utilities to isolate the code under test. This ensures your tests remain fast and do not require a live WordPress environment unless absolutely necessary.
 - **Naming conventions:** Test classes must mirror the source class name with a Test suffix. For example, a class located at `src/PluginLoader.php` should have a corresponding test at `tests/PluginLoaderTest.php`.
 - **Coverage:** While we don't enforce a strict percentage, aim for meaningful coverage of all logical paths. Avoid "happy path only" testing; ensure edge cases and error states are accounted for.
 - **Isolation:** Tests should never rely on the state of a previous test. Always use `setUp()` and `tearDown()` to reset the environment.
 
-
 ### Commit Messages
 
 SolarPoint follows the [Conventional Commits](https://www.conventionalcommits.org/) specification. This consistency allows us to automatically generate changelogs, determine semantic version bumps, and maintain a readable project history.
 
-**Message Format**
+#### Message Format
 
 Every commit must follow this structural pattern:
 
-```
+```text
 <type>[optional scope]: <description>
 
 [optional body]
@@ -343,10 +338,10 @@ Every commit must follow this structural pattern:
 [optional footer(s)]
 ```
 
-**Common Types**
+#### Common Types
 
 | Type | Purpose |
-|---|---|
+| --- | --- |
 | `feat` | A new feature (correlates with MINOR in SemVer) |
 | `fix` | A bug fix (correlates with PATCH in SemVer) |
 | `docs` | Documentation changes only |
@@ -358,7 +353,7 @@ Every commit must follow this structural pattern:
 | `ci` | Changes to CI configuration and workflows |
 | `revert` | Reverts a previous commit |
 
-**Contribution Rules**
+#### Contribution Rules
 
 - **Imperative mood:** Use "add", "fix", or "remove" rather than "added" or "fixes" to describe the action taken.
 - **Lowercase description:** Start the description with a lowercase letter to maintain a clean, uniform log.
@@ -367,7 +362,7 @@ Every commit must follow this structural pattern:
 - **Issue referencing:** Place references to issues in the commit body or footer instead of the subject line.
 - **Atomic commits:** Focus each commit on a single change to keep the codebase stable and the history easy to navigate.
 
-**Breaking Changes**
+#### Breaking Changes
 
 Breaking changes (correlating with MAJOR in SemVer) must be highlighted so they aren't missed during automated releases. You can indicate these in two ways:
 
@@ -376,7 +371,7 @@ Breaking changes (correlating with MAJOR in SemVer) must be highlighted so they 
 
 A Breaking Change with a Footer:
 
-```
+```text
 refactor(logger): update error reporting signature
 
 This change ensures all error logs include a mandatory error code for better debugging.
@@ -384,12 +379,11 @@ This change ensures all error logs include a mandatory error code for better deb
 BREAKING CHANGE: the log() method now requires a numeric error code as the second argument.
 ```
 
-
 ### Commit Signing
 
 All commits must be signed off using the [Developer Certificate of Origin (DCO)](https://developercertificate.org/). By adding a `Signed-off-by` line to your commits, you certify that you wrote the code and have the right to submit it under the project's license.
 
-```
+```text
 Developer Certificate of Origin
 Version 1.1
 
@@ -426,7 +420,6 @@ By making a contribution to this project, I certify that:
     this project or the open source license(s) involved.
 ```
 
-
 #### How to Sign Your Commits
 
 Add the sign-off using the `-s` flag:
@@ -437,18 +430,12 @@ git commit -s -m "fix: short description of the change"
 
 This produces:
 
-```
+```text
 Signed-off-by: Your Name <your@email.com>
 ```
 
 > [!IMPORTANT]
-> Make sure your name and email are configured in Git before committing. These must match your GitHub account for the DCO check to pass:
->
-> ```bash
-> git config user.name "Your Name"
-> git config user.email "your@email.com"
-> ```
-
+> Make sure your [Git configuration](#git-configuration) is set up before committing.
 
 #### Fixing a Missing Sign-off
 
@@ -473,11 +460,9 @@ After fixing the commits locally, you will need to force-push the changes to you
 git push --force-with-lease origin HEAD
 ```
 
+## Opening a Pull Request
 
-## Opening A Pull Request
-
-Before opening a pull request, ensure your changes correspond to a confirmed bug report or an approved feature request. See the [support documentation](SUPPORT.md) for guidance on what qualifies.
-
+For significant changes, ensure your contribution corresponds to an open issue before opening a pull request. For small fixes, a pull request on its own is sufficient. See the [support documentation](SUPPORT.md) for additional guidance.
 
 ### Submitting Code
 
@@ -489,7 +474,6 @@ Code contributions must meet the project's strict quality and testing standards.
 - **Quality:** Run `composer qa` before committing.
 - **Commit:** Sign your commits and follow the [Commit Messages](#commit-messages) format.
 
-
 ### Submitting Documentation
 
 Documentation improvements are highly valued and do not require running the full code quality suite.
@@ -498,23 +482,22 @@ Documentation improvements are highly valued and do not require running the full
 - **Style:** Ensure your language is clear and follows the [Global Communication Standards](#global-communication-standards).
 - **Commit:** Use the `docs:` prefix in your commit message (e.g., `docs: add section to getting started`).
 
-
 ### PR Requirements
 
 Before hitting "Create pull request", ensure your submission meets these criteria:
 
-- **One focus per PR:** Do not mix unrelated changes. Each commit within the PR should also be atomic and leave the codebase in a working state. See [Commit Messages](#commit-messages).
-- **Linked issue:** Reference an existing issue (e.g., `Fixes #123`). If no issue exists, create one first.
+- **One focus per PR:** Do not mix unrelated changes. Each commit should be atomic and leave the project in a working state. See [Commit Messages](#commit-messages).
+- **Linked issue:** Reference an existing issue if one was created (e.g., `Fixes #123`).
 - **Conventional title:** Follow the [Conventional Commits](https://www.conventionalcommits.org/) format (e.g., `feat: add container support`).
 - **Human description:** Fill out the PR template in your own words. Generic or AI-generated descriptions will be returned for revision.
-- **Passing CI:** All automated checks must pass. If the CI fails, resolve the errors before requesting a review.
+- **Root .gitignore:** Do not add editor specific entries. Maintain a global `.gitignore` file instead.
+- **Passing CI:** All automated checks must pass. If CI fails, resolve the errors before requesting a review.
 - **License:** All contributions are licensed under [GPL-3.0-or-later](LICENSE).
 
 We require that your Pull Request description matches our template. A new Pull Request description will be automatically pre-populated based on `pull_request_template.md` content.
 
 > [!IMPORTANT]
 > See the [support documentation](SUPPORT.md) for full context on what qualifies as an approved contribution.
-
 
 ### Review Process
 
@@ -528,9 +511,7 @@ Pull requests labeled `needs info` that receive no response will be marked stale
 
 Draft PRs are welcome for early feedback. Convert to "Ready for Review" once complete. Drafts left inactive for more than 7 days may be closed, but can be reopened when you are ready to proceed.
 
-
 ## Project Communication
-
 
 ### Global Communication Standards
 
@@ -542,7 +523,6 @@ To ensure consistency and clarity across a global community, the following stand
 - **Units of Measure:** Where applicable, prefer Metric (SI) units.
 - **Secure Links:** Always use `https` URLs. Ensure links are direct and do not rely on unnecessary redirects.
 
-
 ### GitHub Discussions
 
 Join the conversation, ask questions, and help improve the SolarPoint framework on [GitHub Discussions](https://github.com/solarpointwp/solarpoint-framework/discussions). The discussions are organized into categories to help you find what you need:
@@ -551,7 +531,6 @@ Join the conversation, ask questions, and help improve the SolarPoint framework 
 - **General:** For community chat and topics that don't fit anywhere else.
 - **Ideas:** For proposing new features, architectural changes, or discussing the framework's direction.
 - **Q&A:** For technical questions, troubleshooting, and general support related to the SolarPoint framework.
-
 
 ### Using GitHub Issues and Discussions
 
@@ -563,7 +542,6 @@ GitHub Issues should be used for tracking actionable tasks. If you know the spec
 - There is a bug in a specific class or method (e.g., a line of code is causing a crash): *GitHub Issues*.
 - I have an idea for a new architectural component or feature: *Discussions (Ideas)*.
 - Implementing an agreed-upon feature or fix: *GitHub Issues*.
-
 
 ### Project and Development Updates
 
