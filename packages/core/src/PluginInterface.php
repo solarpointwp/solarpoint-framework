@@ -52,6 +52,13 @@ interface PluginInterface
     public function getBasePath(string $path = ''): string;
 
     /**
+     * Returns the current environment type.
+     *
+     * @return EnvironmentType The current environment type.
+     */
+    public function environment(): EnvironmentType;
+
+    /**
      * Determines whether the plugin has been booted.
      *
      * @return bool True if the plugin has been booted, false otherwise.

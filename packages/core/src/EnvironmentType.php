@@ -25,6 +25,18 @@ enum EnvironmentType: string
     case Local = 'local';
 
     /**
+     * Determines whether the current environment type matches one of the given types.
+     *
+     * @param self ...$types One or more environment types to check against.
+     *
+     * @return bool True if the current type matches any of the given types, false otherwise.
+     */
+    public function is(self ...$types): bool
+    {
+        return \in_array($this, $types, true);
+    }
+
+    /**
      * Returns the display label for the environment type.
      *
      * @return string The display label for this environment type.

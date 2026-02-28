@@ -18,7 +18,9 @@ use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\Framework\TestCase;
 use SolarPoint\Container\ContainerInterface;
 use SolarPoint\Core\AbstractPlugin;
+use SolarPoint\Core\EnvironmentType;
 use SolarPoint\Core\PluginInterface;
+use SolarPoint\Core\Tests\Stubs\WordPress;
 
 /**
  * @internal
@@ -30,6 +32,8 @@ final class AbstractPluginTest extends TestCase
 
     protected function setUp(): void
     {
+        WordPress::reset();
+
         $this->plugin = new class('/var/www/wp-content/plugins/test-plugin/test-plugin.php') extends AbstractPlugin {
             public function getName(): string
             {
@@ -45,6 +49,7 @@ final class AbstractPluginTest extends TestCase
 
     protected function tearDown(): void
     {
+        WordPress::reset();
         unset($this->plugin);
     }
 
@@ -183,6 +188,38 @@ final class AbstractPluginTest extends TestCase
     public function getBasePathIgnoresAPathThatIsOnlyADirectorySeparator(): void
     {
         $this->assertSame('/var/www/wp-content/plugins/test-plugin', $this->plugin->getBasePath('/'));
+    }
+
+    // =========================================================
+    // environment()
+    // =========================================================
+
+    #[Test]
+    #[TestDox('environment() returns the current environment type')]
+    public function environmentReturnsTheCurrentEnvironmentType(): void
+    {
+        $this->assertSame(EnvironmentType::Production, $this->plugin->environment());
+    }
+
+    #[Test]
+    #[TestDox('environment() reflects the WordPress environment type at construction time')]
+    public function environmentReflectsTheWordPressEnvironmentTypeAtConstructionTime(): void
+    {
+        WordPress::$environmentType = 'development';
+
+        $plugin = new class('/var/www/wp-content/plugins/test-plugin/test-plugin.php') extends AbstractPlugin {
+            public function getName(): string
+            {
+                return 'Test Plugin';
+            }
+
+            public function getVersion(): string
+            {
+                return '1.0.0';
+            }
+        };
+
+        $this->assertSame(EnvironmentType::Development, $plugin->environment());
     }
 
     // =========================================================
