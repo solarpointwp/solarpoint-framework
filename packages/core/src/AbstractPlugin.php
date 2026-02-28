@@ -38,6 +38,11 @@ abstract class AbstractPlugin implements PluginInterface
     private ContainerInterface $container;
 
     /**
+     * The current WordPress environment type.
+     */
+    private EnvironmentType $environmentType;
+
+    /**
      * Constructor.
      *
      * @param string $file The absolute path to the plugin's main file (i.e. __FILE__).
@@ -45,8 +50,8 @@ abstract class AbstractPlugin implements PluginInterface
     public function __construct(string $file)
     {
         $this->setBasePath($file);
-
         $this->container = new Container();
+        $this->detectEnvironment();
     }
 
     abstract public function getName(): string;
@@ -76,6 +81,11 @@ abstract class AbstractPlugin implements PluginInterface
         return $this->basePath.($path !== '' ? \DIRECTORY_SEPARATOR.$path : '');
     }
 
+    public function environment(): EnvironmentType
+    {
+        return $this->environmentType;
+    }
+
     public function isBooted(): bool
     {
         return $this->booted;
@@ -96,6 +106,14 @@ abstract class AbstractPlugin implements PluginInterface
         }
 
         $this->booted = true;
+    }
+
+    /**
+     * Detects and caches the current WordPress environment type.
+     */
+    private function detectEnvironment(): void
+    {
+        $this->environmentType = (new Environment())->type();
     }
 
     /**

@@ -60,6 +60,35 @@ final class EnvironmentTypeTest extends TestCase
         $this->assertSame(EnvironmentType::Local, EnvironmentType::from('local'));
     }
 
+    // =========================================================
+    // is()
+    // =========================================================
+
+    #[Test]
+    #[TestDox('is() returns true when type matches the given type')]
+    public function isReturnsTrueWhenTypeMatchesTheGivenType(): void
+    {
+        $this->assertTrue(EnvironmentType::Production->is(EnvironmentType::Production));
+    }
+
+    #[Test]
+    #[TestDox('is() returns true when type matches one of multiple given types')]
+    public function isReturnsTrueWhenTypeMatchesOneOfMultipleGivenTypes(): void
+    {
+        $this->assertTrue(EnvironmentType::Development->is(EnvironmentType::Staging, EnvironmentType::Development));
+    }
+
+    #[Test]
+    #[TestDox('is() returns false when type does not match any given type')]
+    public function isReturnsFalseWhenTypeDoesNotMatchAnyGivenType(): void
+    {
+        $this->assertFalse(EnvironmentType::Production->is(EnvironmentType::Development, EnvironmentType::Local));
+    }
+
+    // =========================================================
+    // label()
+    // =========================================================
+
     #[Test]
     #[TestDox('label() returns the display label for the environment type')]
     public function labelReturnsTheDisplayLabelForTheEnvironmentType(): void
