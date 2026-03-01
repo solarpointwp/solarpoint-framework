@@ -21,8 +21,8 @@ use SolarPoint\Container\ServiceProvider\ServiceProviderInterface;
 use SolarPoint\Core\AbstractPlugin;
 use SolarPoint\Core\EnvironmentType;
 use SolarPoint\Core\PluginInterface;
-use SolarPoint\Core\Tests\Fixtures\NonServiceProvider;
-use SolarPoint\Core\Tests\Fixtures\ServiceProviderSpy;
+use SolarPoint\Core\Tests\Fixtures\ServiceProviders\NonServiceProvider;
+use SolarPoint\Core\Tests\Fixtures\ServiceProviders\ServiceProviderSpy;
 use SolarPoint\Core\Tests\Stubs\WordPress;
 
 /**

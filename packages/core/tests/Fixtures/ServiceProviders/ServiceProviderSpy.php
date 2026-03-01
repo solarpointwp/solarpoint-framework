@@ -10,7 +10,7 @@
 
 declare(strict_types=1);
 
-namespace SolarPoint\Core\Tests\Fixtures;
+namespace SolarPoint\Core\Tests\Fixtures\ServiceProviders;
 
 use SolarPoint\Container\ServiceProvider\AbstractServiceProvider;
 

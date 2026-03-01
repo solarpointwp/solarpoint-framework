@@ -20,7 +20,7 @@ use PHPUnit\Framework\TestCase;
 use SolarPoint\Core\Bootstrap\BootstrapperInterface;
 use SolarPoint\Core\Bootstrap\RegisterServiceProviders;
 use SolarPoint\Core\PluginInterface;
-use SolarPoint\Core\Tests\Fixtures\ServiceProviderSpy;
+use SolarPoint\Core\Tests\Fixtures\ServiceProviders\ServiceProviderSpy;
 
 /**
  * @internal
@@ -139,15 +139,8 @@ final class RegisterServiceProvidersTest extends TestCase
         $this->assertSame([], $captured);
     }
 
-    /**
-     * Creates a PluginInterface mock configured for provider loading tests.
-     *
-     * @param string        $bootstrapPath The path to return from getBootstrapPath().
-     * @param array<string> $excluded      The excluded service providers to return.
-     *
-     * @return MockObject&PluginInterface
-     */
-    private function createPluginMock(string $bootstrapPath, array $excluded = []): PluginInterface
+    /** @param array<string> $excluded */
+    private function createPluginMock(string $bootstrapPath, array $excluded = []): MockObject&PluginInterface
     {
         $plugin = $this->createMock(PluginInterface::class);
 
