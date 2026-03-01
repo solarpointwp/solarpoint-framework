@@ -62,6 +62,15 @@ interface PluginInterface
     public function getBootstrapPath(string $path = ''): string;
 
     /**
+     * Returns the path to the configuration directory.
+     *
+     * @param string $path Optional. A relative path to append to the config path. Default: ''.
+     *
+     * @return string The config path, or the config path with the given relative path appended.
+     */
+    public function getConfigPath(string $path = ''): string;
+
+    /**
      * Returns the current environment type.
      *
      * @return EnvironmentType The current environment type.

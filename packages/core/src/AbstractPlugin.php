@@ -39,6 +39,11 @@ abstract class AbstractPlugin implements PluginInterface
     protected string $bootstrapPath = '';
 
     /**
+     * The custom path to the configuration directory.
+     */
+    protected string $configPath = '';
+
+    /**
      * The default framework service providers to exclude from registration.
      *
      * @var array<class-string>
@@ -104,6 +109,11 @@ abstract class AbstractPlugin implements PluginInterface
     public function getBootstrapPath(string $path = ''): string
     {
         return $this->joinPaths($this->bootstrapPath ?: $this->getBasePath('bootstrap'), $path);
+    }
+
+    public function getConfigPath(string $path = ''): string
+    {
+        return $this->joinPaths($this->configPath ?: $this->getBasePath('config'), $path);
     }
 
     public function environment(): EnvironmentType

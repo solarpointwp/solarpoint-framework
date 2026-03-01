@@ -262,6 +262,72 @@ final class AbstractPluginTest extends TestCase
     }
 
     // =========================================================
+    // getConfigPath()
+    // =========================================================
+
+    #[Test]
+    #[TestDox('getConfigPath() returns the default config directory')]
+    public function getConfigPathReturnsTheDefaultConfigDirectory(): void
+    {
+        $this->assertSame(
+            '/var/www/wp-content/plugins/test-plugin/config',
+            $this->plugin->getConfigPath()
+        );
+    }
+
+    #[Test]
+    #[TestDox('getConfigPath() appends a relative path when provided')]
+    public function getConfigPathAppendsARelativePathWhenProvided(): void
+    {
+        $this->assertSame(
+            '/var/www/wp-content/plugins/test-plugin/config/app.php',
+            $this->plugin->getConfigPath('app.php')
+        );
+    }
+
+    #[Test]
+    #[TestDox('getConfigPath() uses the custom config path when set')]
+    public function getConfigPathUsesTheCustomConfigPathWhenSet(): void
+    {
+        $plugin = new class('/var/www/wp-content/plugins/test-plugin/test-plugin.php') extends AbstractPlugin {
+            protected string $configPath = '/custom/config';
+
+            public function getName(): string
+            {
+                return 'Test Plugin';
+            }
+
+            public function getVersion(): string
+            {
+                return '1.0.0';
+            }
+        };
+
+        $this->assertSame('/custom/config', $plugin->getConfigPath());
+    }
+
+    #[Test]
+    #[TestDox('getConfigPath() appends a relative path to the custom config path')]
+    public function getConfigPathAppendsARelativePathToTheCustomConfigPath(): void
+    {
+        $plugin = new class('/var/www/wp-content/plugins/test-plugin/test-plugin.php') extends AbstractPlugin {
+            protected string $configPath = '/custom/config';
+
+            public function getName(): string
+            {
+                return 'Test Plugin';
+            }
+
+            public function getVersion(): string
+            {
+                return '1.0.0';
+            }
+        };
+
+        $this->assertSame('/custom/config/app.php', $plugin->getConfigPath('app.php'));
+    }
+
+    // =========================================================
     // environment()
     // =========================================================
 
