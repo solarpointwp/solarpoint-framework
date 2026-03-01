@@ -25,18 +25,21 @@
     },
     "replace": {
         "solarpoint/container": "self.version",
-        "solarpoint/core": "self.version"
+        "solarpoint/core": "self.version",
+        "solarpoint/hooks": "self.version"
     },
     "autoload": {
         "psr-4": {
             "SolarPoint\\Container\\": "packages/container/src/",
-            "SolarPoint\\Core\\": "packages/core/src/"
+            "SolarPoint\\Core\\": "packages/core/src/",
+            "SolarPoint\\Hooks\\": "packages/hooks/src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
             "SolarPoint\\Container\\Tests\\": "packages/container/tests/",
-            "SolarPoint\\Core\\Tests\\": "packages/core/tests/"
+            "SolarPoint\\Core\\Tests\\": "packages/core/tests/",
+            "SolarPoint\\Hooks\\Tests\\": "packages/hooks/tests/"
         }
     },
     "minimum-stability": "dev",
