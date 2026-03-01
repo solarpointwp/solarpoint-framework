@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the SolarPointWP framework.
+ * This file is part of the SolarPoint framework.
  *
  * Copyright (c) 2026 Mark Hadjar <mark.hadjar@solarpointwp.com>
  *
@@ -33,12 +33,29 @@ interface ContainerInterface
     public function bind(string $abstract, Closure|string|null $concrete = null, bool $isShared = false): void;
 
     /**
+     * Registers a binding with the container if one does not already exist.
+     *
+     * @param class-string        $abstract The class or interface name.
+     * @param Closure|string|null $concrete Optional. The concrete implementation, class name, or factory closure. Default: null.
+     * @param bool                $isShared Optional. Whether to resolve the binding as a shared instance. Default: false.
+     */
+    public function bindIf(string $abstract, Closure|string|null $concrete = null, bool $isShared = false): void;
+
+    /**
      * Registers a shared binding with the container that is resolved only once.
      *
      * @param class-string        $abstract The class or interface name.
      * @param Closure|string|null $concrete Optional. The concrete implementation, class name, or factory closure. Default: null.
      */
     public function singleton(string $abstract, Closure|string|null $concrete = null): void;
+
+    /**
+     * Registers a shared binding with the container if one does not already exist.
+     *
+     * @param class-string        $abstract The class or interface name.
+     * @param Closure|string|null $concrete Optional. The concrete implementation, class name, or factory closure. Default: null.
+     */
+    public function singletonIf(string $abstract, Closure|string|null $concrete = null): void;
 
     /**
      * Registers an existing object instance as shared in the container.
