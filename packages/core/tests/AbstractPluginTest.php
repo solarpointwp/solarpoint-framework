@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the SolarPointWP framework.
+ * This file is part of the SolarPoint framework.
  *
  * Copyright (c) 2026 Mark Hadjar <mark.hadjar@solarpointwp.com>
  *
@@ -17,9 +17,12 @@ use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\Framework\TestCase;
 use SolarPoint\Container\ContainerInterface;
+use SolarPoint\Container\ServiceProvider\ServiceProviderInterface;
 use SolarPoint\Core\AbstractPlugin;
 use SolarPoint\Core\EnvironmentType;
 use SolarPoint\Core\PluginInterface;
+use SolarPoint\Core\Tests\Fixtures\NonServiceProvider;
+use SolarPoint\Core\Tests\Fixtures\ServiceProviderSpy;
 use SolarPoint\Core\Tests\Stubs\WordPress;
 
 /**
@@ -33,6 +36,7 @@ final class AbstractPluginTest extends TestCase
     protected function setUp(): void
     {
         WordPress::reset();
+        ServiceProviderSpy::reset();
 
         $this->plugin = new class('/var/www/wp-content/plugins/test-plugin/test-plugin.php') extends AbstractPlugin {
             public function getName(): string
@@ -50,6 +54,7 @@ final class AbstractPluginTest extends TestCase
     protected function tearDown(): void
     {
         WordPress::reset();
+        ServiceProviderSpy::reset();
         unset($this->plugin);
     }
 
@@ -191,6 +196,72 @@ final class AbstractPluginTest extends TestCase
     }
 
     // =========================================================
+    // getBootstrapPath()
+    // =========================================================
+
+    #[Test]
+    #[TestDox('getBootstrapPath() returns the default bootstrap directory')]
+    public function getBootstrapPathReturnsTheDefaultBootstrapDirectory(): void
+    {
+        $this->assertSame(
+            '/var/www/wp-content/plugins/test-plugin/bootstrap',
+            $this->plugin->getBootstrapPath()
+        );
+    }
+
+    #[Test]
+    #[TestDox('getBootstrapPath() appends a relative path when provided')]
+    public function getBootstrapPathAppendsARelativePathWhenProvided(): void
+    {
+        $this->assertSame(
+            '/var/www/wp-content/plugins/test-plugin/bootstrap/providers.php',
+            $this->plugin->getBootstrapPath('providers.php')
+        );
+    }
+
+    #[Test]
+    #[TestDox('getBootstrapPath() uses the custom bootstrap path when set')]
+    public function getBootstrapPathUsesTheCustomBootstrapPathWhenSet(): void
+    {
+        $plugin = new class('/var/www/wp-content/plugins/test-plugin/test-plugin.php') extends AbstractPlugin {
+            protected string $bootstrapPath = '/custom/bootstrap';
+
+            public function getName(): string
+            {
+                return 'Test Plugin';
+            }
+
+            public function getVersion(): string
+            {
+                return '1.0.0';
+            }
+        };
+
+        $this->assertSame('/custom/bootstrap', $plugin->getBootstrapPath());
+    }
+
+    #[Test]
+    #[TestDox('getBootstrapPath() appends a relative path to the custom bootstrap path')]
+    public function getBootstrapPathAppendsARelativePathToTheCustomBootstrapPath(): void
+    {
+        $plugin = new class('/var/www/wp-content/plugins/test-plugin/test-plugin.php') extends AbstractPlugin {
+            protected string $bootstrapPath = '/custom/bootstrap';
+
+            public function getName(): string
+            {
+                return 'Test Plugin';
+            }
+
+            public function getVersion(): string
+            {
+                return '1.0.0';
+            }
+        };
+
+        $this->assertSame('/custom/bootstrap/providers.php', $plugin->getBootstrapPath('providers.php'));
+    }
+
+    // =========================================================
     // environment()
     // =========================================================
 
@@ -220,6 +291,191 @@ final class AbstractPluginTest extends TestCase
         };
 
         $this->assertSame(EnvironmentType::Development, $plugin->environment());
+    }
+
+    // =========================================================
+    // registerConfiguredServiceProviders()
+    // =========================================================
+
+    #[Test]
+    #[TestDox('registerConfiguredServiceProviders() registers each provider in the array')]
+    public function registerConfiguredServiceProvidersRegistersEachProviderInTheArray(): void
+    {
+        $this->plugin->registerConfiguredServiceProviders([ServiceProviderSpy::class]);
+
+        $this->assertInstanceOf(
+            ServiceProviderInterface::class,
+            $this->plugin->getServiceProvider(ServiceProviderSpy::class)
+        );
+    }
+
+    #[Test]
+    #[TestDox('registerConfiguredServiceProviders() completes without error when given an empty array')]
+    public function registerConfiguredServiceProvidersCompletesWithoutErrorWhenGivenAnEmptyArray(): void
+    {
+        $this->plugin->registerConfiguredServiceProviders([]);
+
+        $this->assertSame([], $this->plugin->getServiceProviders());
+    }
+
+    // =========================================================
+    // register()
+    // =========================================================
+
+    #[Test]
+    #[TestDox('register() registers a valid service provider')]
+    public function registerRegistersAValidServiceProvider(): void
+    {
+        $this->plugin->register(ServiceProviderSpy::class);
+
+        $this->assertInstanceOf(
+            ServiceProviderInterface::class,
+            $this->plugin->getServiceProvider(ServiceProviderSpy::class)
+        );
+    }
+
+    #[Test]
+    #[TestDox('register() calls register() on the service provider instance')]
+    public function registerCallsRegisterOnTheServiceProviderInstance(): void
+    {
+        $this->plugin->register(ServiceProviderSpy::class);
+
+        $this->assertTrue(ServiceProviderSpy::$registered);
+    }
+
+    #[Test]
+    #[TestDox('register() skips duplicate registration')]
+    public function registerSkipsDuplicateRegistration(): void
+    {
+        $this->plugin->register(ServiceProviderSpy::class);
+
+        ServiceProviderSpy::$registered = false;
+
+        $this->plugin->register(ServiceProviderSpy::class);
+
+        $this->assertFalse(ServiceProviderSpy::$registered);
+    }
+
+    #[Test]
+    #[TestDox('register() skips classes that do not implement ServiceProviderInterface')]
+    public function registerSkipsClassesThatDoNotImplementServiceProviderInterface(): void
+    {
+        $this->plugin->register(NonServiceProvider::class);
+
+        $this->assertSame([], $this->plugin->getServiceProviders());
+    }
+
+    #[Test]
+    #[TestDox('register() boots the provider immediately if the plugin is already booted')]
+    public function registerBootsTheProviderImmediatelyIfThePluginIsAlreadyBooted(): void
+    {
+        $this->plugin->onPluginsLoaded();
+        $this->assertTrue($this->plugin->isBooted());
+
+        $this->plugin->register(ServiceProviderSpy::class);
+
+        $this->assertTrue(ServiceProviderSpy::$booted);
+    }
+
+    #[Test]
+    #[TestDox('register() does not boot the provider if the plugin has not been booted')]
+    public function registerDoesNotBootTheProviderIfThePluginHasNotBeenBooted(): void
+    {
+        $this->plugin->register(ServiceProviderSpy::class);
+
+        $this->assertFalse(ServiceProviderSpy::$booted);
+    }
+
+    // =========================================================
+    // excludeServiceProviders()
+    // =========================================================
+
+    #[Test]
+    #[TestDox('excludeServiceProviders() adds providers to the excluded list')]
+    public function excludeServiceProvidersAddsProvidersToTheExcludedList(): void
+    {
+        $this->plugin->excludeServiceProviders([ServiceProviderSpy::class]);
+
+        $this->assertSame([ServiceProviderSpy::class], $this->plugin->getExcludedServiceProviders());
+    }
+
+    #[Test]
+    #[TestDox('excludeServiceProviders() merges with previously excluded providers')]
+    public function excludeServiceProvidersMergesWithPreviouslyExcludedProviders(): void
+    {
+        $this->plugin->excludeServiceProviders([ServiceProviderSpy::class]);
+        $this->plugin->excludeServiceProviders([NonServiceProvider::class]);
+
+        $this->assertSame(
+            [ServiceProviderSpy::class, NonServiceProvider::class],
+            $this->plugin->getExcludedServiceProviders()
+        );
+    }
+
+    #[Test]
+    #[TestDox('excludeServiceProviders() accepts an empty array')]
+    public function excludeServiceProvidersAcceptsAnEmptyArray(): void
+    {
+        $this->plugin->excludeServiceProviders([]);
+
+        $this->assertSame([], $this->plugin->getExcludedServiceProviders());
+    }
+
+    // =========================================================
+    // getExcludedServiceProviders()
+    // =========================================================
+
+    #[Test]
+    #[TestDox('getExcludedServiceProviders() returns an empty array by default')]
+    public function getExcludedServiceProvidersReturnsAnEmptyArrayByDefault(): void
+    {
+        $this->assertSame([], $this->plugin->getExcludedServiceProviders());
+    }
+
+    // =========================================================
+    // getServiceProvider()
+    // =========================================================
+
+    #[Test]
+    #[TestDox('getServiceProvider() returns the provider instance when registered')]
+    public function getServiceProviderReturnsTheProviderInstanceWhenRegistered(): void
+    {
+        $this->plugin->register(ServiceProviderSpy::class);
+
+        $this->assertInstanceOf(
+            ServiceProviderInterface::class,
+            $this->plugin->getServiceProvider(ServiceProviderSpy::class)
+        );
+    }
+
+    #[Test]
+    #[TestDox('getServiceProvider() returns null when the provider is not registered')]
+    public function getServiceProviderReturnsNullWhenTheProviderIsNotRegistered(): void
+    {
+        $this->assertNull($this->plugin->getServiceProvider(ServiceProviderSpy::class));
+    }
+
+    // =========================================================
+    // getServiceProviders()
+    // =========================================================
+
+    #[Test]
+    #[TestDox('getServiceProviders() returns an empty array when no providers are registered')]
+    public function getServiceProvidersReturnsAnEmptyArrayWhenNoProvidersAreRegistered(): void
+    {
+        $this->assertSame([], $this->plugin->getServiceProviders());
+    }
+
+    #[Test]
+    #[TestDox('getServiceProviders() returns all registered providers')]
+    public function getServiceProvidersReturnsAllRegisteredProviders(): void
+    {
+        $this->plugin->register(ServiceProviderSpy::class);
+
+        $providers = $this->plugin->getServiceProviders();
+
+        $this->assertCount(1, $providers);
+        $this->assertArrayHasKey(ServiceProviderSpy::class, $providers);
     }
 
     // =========================================================

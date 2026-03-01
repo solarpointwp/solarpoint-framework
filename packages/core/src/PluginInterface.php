@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the SolarPointWP framework.
+ * This file is part of the SolarPoint framework.
  *
  * Copyright (c) 2026 Mark Hadjar <mark.hadjar@solarpointwp.com>
  *
@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace SolarPoint\Core;
 
 use SolarPoint\Container\ContainerInterface;
+use SolarPoint\Container\ServiceProvider\ServiceProviderInterface;
 
 /**
  * Defines the contract for a WordPress plugin.
@@ -52,11 +53,55 @@ interface PluginInterface
     public function getBasePath(string $path = ''): string;
 
     /**
+     * Returns the path to the bootstrap directory.
+     *
+     * @param string $path Optional. A relative path to append to the bootstrap path. Default: ''.
+     *
+     * @return string The bootstrap path, or the bootstrap path with the given relative path appended.
+     */
+    public function getBootstrapPath(string $path = ''): string;
+
+    /**
      * Returns the current environment type.
      *
      * @return EnvironmentType The current environment type.
      */
     public function environment(): EnvironmentType;
+
+    /**
+     * Registers the framework's default and plugin-configured service providers.
+     *
+     * @param array<class-string> $providers The service provider class names to register.
+     */
+    public function registerConfiguredServiceProviders(array $providers): void;
+
+    /**
+     * Registers a service provider with the plugin.
+     *
+     * @param class-string $provider The service provider class name.
+     */
+    public function register(string $provider): void;
+
+    /**
+     * Excludes default framework service providers from registration.
+     *
+     * @param array<class-string> $providers The service provider class names to exclude.
+     */
+    public function excludeServiceProviders(array $providers): void;
+
+    /**
+     * Returns the default framework service providers excluded from registration.
+     *
+     * @return array<class-string> The excluded service provider class names.
+     */
+    public function getExcludedServiceProviders(): array;
+
+    /**
+     * Returns all registered service providers.
+     *
+     * @return array<class-string, ServiceProviderInterface> The registered service provider instances keyed by class name.
+     */
+    public function getServiceProviders(): array;
 
     /**
      * Determines whether the plugin has been booted.
