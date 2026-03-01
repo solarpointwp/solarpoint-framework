@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the SolarPointWP framework.
+ * This file is part of the SolarPoint framework.
  *
  * Copyright (c) 2026 Mark Hadjar <mark.hadjar@solarpointwp.com>
  *
@@ -67,9 +67,23 @@ final class Container implements ContainerInterface
         ];
     }
 
+    public function bindIf(string $abstract, Closure|string|null $concrete = null, bool $isShared = false): void
+    {
+        if (!$this->bound($abstract)) {
+            $this->bind($abstract, $concrete, $isShared);
+        }
+    }
+
     public function singleton(string $abstract, Closure|string|null $concrete = null): void
     {
         $this->bind($abstract, $concrete, true);
+    }
+
+    public function singletonIf(string $abstract, Closure|string|null $concrete = null): void
+    {
+        if (!$this->bound($abstract)) {
+            $this->singleton($abstract, $concrete);
+        }
     }
 
     public function instance(string $abstract, object $instance): void

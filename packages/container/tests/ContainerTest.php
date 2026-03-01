@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the SolarPointWP framework.
+ * This file is part of the SolarPoint framework.
  *
  * Copyright (c) 2026 Mark Hadjar <mark.hadjar@solarpointwp.com>
  *
@@ -164,6 +164,43 @@ final class ContainerTest extends TestCase
     }
 
     // =========================================================
+    // bindIf()
+    // =========================================================
+
+    #[Test]
+    #[TestDox('bindIf() registers a binding when one does not already exist')]
+    public function bindIfRegistersABindingWhenOneDoesNotExist(): void
+    {
+        $this->container->bindIf(ServiceStub::class);
+
+        $this->assertTrue($this->container->bound(ServiceStub::class));
+        $this->assertInstanceOf(ServiceStub::class, $this->container->make(ServiceStub::class));
+    }
+
+    #[Test]
+    #[TestDox('bindIf() does not override an existing binding')]
+    public function bindIfDoesNotOverrideAnExistingBinding(): void
+    {
+        $this->container->bind(ServiceInterface::class, ServiceImplementation::class);
+
+        $this->container->bindIf(ServiceInterface::class, ServiceStub::class);
+
+        $this->assertInstanceOf(ServiceImplementation::class, $this->container->make(ServiceInterface::class));
+    }
+
+    #[Test]
+    #[TestDox('bindIf() does not override an existing instance')]
+    public function bindIfDoesNotOverrideAnExistingInstance(): void
+    {
+        $original = new ServiceStub();
+        $this->container->instance(ServiceStub::class, $original);
+
+        $this->container->bindIf(ServiceStub::class, fn () => new ServiceStub());
+
+        $this->assertSame($original, $this->container->make(ServiceStub::class));
+    }
+
+    // =========================================================
     // singleton()
     // =========================================================
 
@@ -233,6 +270,47 @@ final class ContainerTest extends TestCase
         $this->container->make(ServiceStub::class);
 
         $this->assertSame(1, $count);
+    }
+
+    // =========================================================
+    // singletonIf()
+    // =========================================================
+
+    #[Test]
+    #[TestDox('singletonIf() registers a shared binding when one does not already exist')]
+    public function singletonIfRegistersASharedBindingWhenOneDoesNotExist(): void
+    {
+        $this->container->singletonIf(ServiceStub::class);
+
+        $this->assertTrue($this->container->isShared(ServiceStub::class));
+
+        $first = $this->container->make(ServiceStub::class);
+        $second = $this->container->make(ServiceStub::class);
+
+        $this->assertSame($first, $second);
+    }
+
+    #[Test]
+    #[TestDox('singletonIf() does not override an existing binding')]
+    public function singletonIfDoesNotOverrideAnExistingBinding(): void
+    {
+        $this->container->bind(ServiceInterface::class, ServiceImplementation::class);
+
+        $this->container->singletonIf(ServiceInterface::class, ServiceStub::class);
+
+        $this->assertInstanceOf(ServiceImplementation::class, $this->container->make(ServiceInterface::class));
+    }
+
+    #[Test]
+    #[TestDox('singletonIf() does not override an existing instance')]
+    public function singletonIfDoesNotOverrideAnExistingInstance(): void
+    {
+        $original = new ServiceStub();
+        $this->container->instance(ServiceStub::class, $original);
+
+        $this->container->singletonIf(ServiceStub::class, fn () => new ServiceStub());
+
+        $this->assertSame($original, $this->container->make(ServiceStub::class));
     }
 
     // =========================================================

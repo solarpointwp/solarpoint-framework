@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the SolarPointWP framework.
+ * This file is part of the SolarPoint framework.
  *
  * Copyright (c) 2026 Mark Hadjar <mark.hadjar@solarpointwp.com>
  *
