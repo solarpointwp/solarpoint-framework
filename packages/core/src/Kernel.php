@@ -27,6 +27,7 @@ class Kernel implements KernelInterface
      * @var array<class-string<BootstrapperInterface>>
      */
     protected array $bootstrappers = [
+        Bootstrap\LoadConfiguration::class,
         Bootstrap\RegisterServiceProviders::class,
         Bootstrap\BootServiceProviders::class,
     ];
