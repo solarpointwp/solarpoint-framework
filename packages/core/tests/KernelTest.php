@@ -19,9 +19,9 @@ use PHPUnit\Framework\TestCase;
 use SolarPoint\Core\Kernel;
 use SolarPoint\Core\KernelInterface;
 use SolarPoint\Core\PluginInterface;
-use SolarPoint\Core\Tests\Fixtures\BootstrapperA;
-use SolarPoint\Core\Tests\Fixtures\BootstrapperB;
-use SolarPoint\Core\Tests\Fixtures\BootstrapperSpy;
+use SolarPoint\Core\Tests\Fixtures\Bootstrap\BootstrapperA;
+use SolarPoint\Core\Tests\Fixtures\Bootstrap\BootstrapperB;
+use SolarPoint\Core\Tests\Fixtures\Bootstrap\BootstrapperSpy;
 
 /**
  * @internal

@@ -10,21 +10,21 @@
 
 declare(strict_types=1);
 
-namespace SolarPoint\Core\Tests\Fixtures;
+namespace SolarPoint\Core\Tests\Fixtures\Bootstrap;
 
 use SolarPoint\Core\Bootstrap\BootstrapperInterface;
 use SolarPoint\Core\PluginInterface;
 
 /**
- * Fixture bootstrapper that records 'A' when invoked.
+ * Fixture bootstrapper that records 'B' when invoked.
  *
  * @internal
  */
-final class BootstrapperA implements BootstrapperInterface
+final class BootstrapperB implements BootstrapperInterface
 {
     public function bootstrap(PluginInterface $plugin): void
     {
-        BootstrapperSpy::$entries[] = 'A';
+        BootstrapperSpy::$entries[] = 'B';
         BootstrapperSpy::$lastPlugin = $plugin;
     }
 }

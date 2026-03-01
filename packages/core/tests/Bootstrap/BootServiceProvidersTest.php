@@ -20,7 +20,7 @@ use SolarPoint\Container\ServiceProvider\ServiceProviderInterface;
 use SolarPoint\Core\Bootstrap\BootServiceProviders;
 use SolarPoint\Core\Bootstrap\BootstrapperInterface;
 use SolarPoint\Core\PluginInterface;
-use SolarPoint\Core\Tests\Fixtures\ServiceProviderSpy;
+use SolarPoint\Core\Tests\Fixtures\ServiceProviders\ServiceProviderSpy;
 
 /**
  * @internal
